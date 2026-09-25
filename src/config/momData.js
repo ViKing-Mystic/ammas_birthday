@@ -50,9 +50,9 @@ export const MOM_DATA = {
       pleaTitle: "Please say yes, Amma... 🥺",
       pleaSubtitle: "Look at this face... you wouldn't break a kitten's heart on your birthday, right?",
       photo: {
-        image: "./images/photo_34.jpg",
-        caption: "Late-evening dessert treat \u2014 Kuttan and Amma enjoying ice cream and fond memories together.",
-        tag: "Ice Cream Treat"
+        image: "./images/photo_37.jpg",
+        caption: "Twinning in royal purple \u2014 Kuttan, Ammini, and Amma celebrating an unbreakable bond of love.",
+        tag: "Unbreakable Bond"
       },
       yesButtonText: "Okay, YES! 🥰",
       noButtonText: "Still No 🙈",
@@ -445,11 +445,11 @@ export const MOM_DATA = {
     },
     {
       id: 12,
-      title: "Our Living Legacy & Boundless Love",
-      description: "Wherever life leads us and however far we go, our hearts will always belong to the warm, selfless, extraordinary woman who gave us everything. Happy Birthday, dearest Amma!",
-      tag: "Boundless Love",
-      image: "./images/photo_37.jpg",
-      caption: "Twinning in royal purple \u2014 Kuttan, Ammini, and Amma celebrating an unbreakable bond of love."
+      title: "Our Living Legacy & Sweet Memories",
+      description: "Sharing laughs, late-night dessert dates, and endless warmth \u2014 wherever life leads us and however far we go, our hearts will always belong to the warm, selfless, extraordinary woman who gave us everything. Happy Birthday, dearest Amma!",
+      tag: "Sweet Memories",
+      image: "./images/photo_34.jpg",
+      caption: "Late-evening dessert treat \u2014 Kuttan and Amma enjoying ice cream and fond memories together."
     }
   ],
 
