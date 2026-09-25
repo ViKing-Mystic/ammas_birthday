@@ -5,12 +5,11 @@ import { usePhotoLightbox, EnlargeableImage } from './PhotoLightboxModal';
 import { useDeviceMode } from './PhoneContainer';
 
 const CATEGORIES = [
-  { key: 'all', label: 'All Moments', count: 31, icon: Sparkles },
-  { key: 'family', label: 'Whole Family', icon: Users },
-  { key: 'kuttan', label: 'With Kuttan 👦', icon: User },
+  { key: 'all', label: 'All Moments', icon: Sparkles },
+  { key: 'solo', label: 'Solo 🌸', icon: Camera },
   { key: 'ammini', label: 'With Ammini 👧', icon: Heart },
-  { key: 'couple', label: 'Amma & Achan 💑', icon: HeartHandshake },
-  { key: 'solo_vintage', label: 'Solo & Vintage 🌸', icon: Camera }
+  { key: 'kuttan', label: 'With Kuttan 👦', icon: User },
+  { key: 'couple', label: 'Amma & Achan 💑', icon: HeartHandshake }
 ];
 
 export default function MemoryGallery() {
@@ -33,8 +32,8 @@ export default function MemoryGallery() {
   // Filter memories
   const filteredMemories = MOM_DATA.memories.filter(item => {
     if (activeCategory === 'all') return true;
-    if (activeCategory === 'family') {
-      return item.category === 'family' || item.caption.toLowerCase().includes('family') || item.caption.toLowerCase().includes('all four');
+    if (activeCategory === 'solo') {
+      return item.category === 'solo' || item.category === 'solo_vintage';
     }
     if (activeCategory === 'kuttan') {
       return item.category === 'kuttan' || item.caption.toLowerCase().includes('kuttan');
@@ -44,9 +43,6 @@ export default function MemoryGallery() {
     }
     if (activeCategory === 'couple') {
       return item.category === 'couple' || item.caption.toLowerCase().includes('achan');
-    }
-    if (activeCategory === 'solo_vintage') {
-      return item.category === 'solo_vintage';
     }
     return true;
   });
@@ -75,11 +71,10 @@ export default function MemoryGallery() {
           const count = cat.key === 'all' 
             ? MOM_DATA.memories.length 
             : MOM_DATA.memories.filter(m => {
-                if (cat.key === 'family') return m.category === 'family' || m.caption.toLowerCase().includes('family');
+                if (cat.key === 'solo') return m.category === 'solo' || m.category === 'solo_vintage';
                 if (cat.key === 'kuttan') return m.category === 'kuttan' || m.caption.toLowerCase().includes('kuttan');
                 if (cat.key === 'ammini') return m.category === 'ammini' || m.caption.toLowerCase().includes('ammini');
                 if (cat.key === 'couple') return m.category === 'couple' || m.caption.toLowerCase().includes('achan');
-                if (cat.key === 'solo_vintage') return m.category === 'solo_vintage';
                 return true;
               }).length;
 
