@@ -38,9 +38,9 @@ export const MOM_DATA = {
       subheadline: "A sweet little messenger has something very special for you from your Kuttan & Ammini...",
       catHint: "Tap the envelope to open it! ✨",
       envelopePhoto: {
-        image: "./images/photo_02.jpg",
-        caption: "Youthful elegance and jasmine in her hair \u2014 our beautiful Amma's timeless grace.",
-        tag: "Timeless Grace"
+        image: "./images/photo_35.jpg",
+        caption: "Framed in grace and radiance \u2014 our dearest Amma brightening every single room she enters.",
+        tag: "Radiant Frame"
       },
       question: "Amma, do you want to see your birthday surprise?",
       yesButtonText: "Yes, absolutely! 💖",
@@ -50,9 +50,9 @@ export const MOM_DATA = {
       pleaTitle: "Please say yes, Amma... 🥺",
       pleaSubtitle: "Look at this face... you wouldn't break a kitten's heart on your birthday, right?",
       photo: {
-        image: "./images/photo_09.jpg",
-        caption: "Amma holding her whole world \u2014 little Kuttan and baby Ammini cuddled together at home.",
-        tag: "Cozy Cuddles"
+        image: "./images/photo_37.jpg",
+        caption: "Twinning in royal purple \u2014 Kuttan, Ammini, and Amma celebrating an unbreakable bond of love.",
+        tag: "Unbreakable Bond"
       },
       yesButtonText: "Okay, YES! 🥰",
       noButtonText: "Still No 🙈",
@@ -86,9 +86,9 @@ export const MOM_DATA = {
           "You were our food, our comfort, our teacher, our scolding, our biggest cheerleader and the person who made every place feel like home."
         ],
         photo: {
-          image: "./images/photo_37.jpg",
-          caption: "Twinning in royal purple \u2014 Kuttan, Ammini, and Amma celebrating an unbreakable bond of love.",
-          tag: "Unbreakable Bond"
+          image: "./images/photo_09.jpg",
+          caption: "Amma holding her whole world \u2014 little Kuttan and baby Ammini cuddled together at home.",
+          tag: "Cozy Cuddles"
         }
       },
       {
@@ -159,189 +159,189 @@ export const MOM_DATA = {
     signature: "Kuttan & Ammini"
   },
 
-  // 3. Section 1: Moments (20 Photos - Chronological Rhythm: Solo -> Duo/Trio -> Group)
+  // 3. Section 1: Moments (20 Photos - Chronological Timeline)
   memories: [
     {
-        "id": 1,
-        "image": "./images/photo_01.jpg",
-        "caption": "Little Amma in her school days — a rare, nostalgic glimpse into our dearest mother's childhood.",
-        "note": "A precious childhood glimpse",
-        "dateOrTag": "Early Childhood",
-        "category": "solo",
-        "likes": 182
+      id: 1,
+      image: "./images/photo_01.jpg",
+      caption: "Little Amma in her school days \u2014 a rare, nostalgic glimpse into our dearest mother's childhood.",
+      note: "A precious childhood glimpse",
+      dateOrTag: "Early Childhood",
+      category: "solo_vintage",
+      likes: 182
     },
     {
-        "id": 2,
-        "image": "./images/photo_03.jpg",
-        "caption": "The sacred moment it all began — Amma and Achan exchanging wedding vows and promises of a lifetime.",
-        "note": "Dhanya weds Maneesh",
-        "dateOrTag": "Wedding Day",
-        "category": "couple",
-        "likes": 210
+      id: 2,
+      image: "./images/photo_03.jpg",
+      caption: "The sacred moment it all began \u2014 Amma and Achan exchanging wedding vows and promises of a lifetime.",
+      note: "Dhanya weds Maneesh",
+      dateOrTag: "Wedding Day",
+      category: "couple",
+      likes: 210
     },
     {
-        "id": 3,
-        "image": "./images/photo_10.jpg",
-        "caption": "Holi celebrations with family — colorful cheeks, bright smiles, and baby Ammini joining the fun.",
-        "note": "First festival colors",
-        "dateOrTag": "Festival of Colors",
-        "category": "family",
-        "likes": 172
+      id: 3,
+      image: "./images/photo_05.jpg",
+      caption: "Young and carefree \u2014 Amma and Achan enjoying sunny outdoor days together.",
+      note: "Sunny days and sweet laughs",
+      dateOrTag: "Early Couple Days",
+      category: "couple",
+      likes: 164
     },
     {
-        "id": 4,
-        "image": "./images/photo_17.jpg",
-        "caption": "A moment of pure joy — Amma dancing in the green monsoon woods with a smile brighter than the rain.",
-        "note": "Dancing in the woods",
-        "dateOrTag": "Monsoon Joy",
-        "category": "solo",
-        "likes": 192
+      id: 4,
+      image: "./images/photo_10.jpg",
+      caption: "Holi celebrations with family \u2014 colorful cheeks, bright smiles, and baby Ammini joining the fun.",
+      note: "First festival colors",
+      dateOrTag: "Festival of Colors",
+      category: "family",
+      likes: 172
     },
     {
-        "id": 5,
-        "image": "./images/photo_05.jpg",
-        "caption": "Young and carefree — Amma and Achan enjoying sunny outdoor days together.",
-        "note": "Sunny days and sweet laughs",
-        "dateOrTag": "Early Couple Days",
-        "category": "couple",
-        "likes": 164
+      id: 5,
+      image: "./images/photo_11.jpg",
+      caption: "Achan, Amma, and young Kuttan covered in vibrant Holi gulal after festive mischief.",
+      note: "Colors and smiles",
+      dateOrTag: "Holi Mischief",
+      category: "kuttan",
+      likes: 160
     },
     {
-        "id": 6,
-        "image": "./images/photo_13.jpg",
-        "caption": "Exploring historic stone monuments together — Achan holding baby Ammini in her cap while Kuttan and Amma smile by the ancient pillars.",
-        "note": "Heritage temple exploration",
-        "dateOrTag": "Temple Heritage Trip",
-        "category": "family",
-        "likes": 178
+      id: 6,
+      image: "./images/photo_13.jpg",
+      caption: "Exploring historic stone monuments together \u2014 Achan holding baby Ammini in her cap while Kuttan and Amma smile by the ancient pillars.",
+      note: "Heritage temple exploration",
+      dateOrTag: "Temple Heritage Trip",
+      category: "family",
+      likes: 178
     },
     {
-        "id": 7,
-        "image": "./images/photo_11.jpg",
-        "caption": "Achan, Amma, and young Kuttan covered in vibrant Holi gulal after festive mischief.",
-        "note": "Colors and smiles",
-        "dateOrTag": "Holi Mischief",
-        "category": "kuttan",
-        "likes": 160
+      id: 7,
+      image: "./images/photo_14.jpg",
+      caption: "Gathered at our ancestral home \u2014 generations of blessings with Muthassi, Muthachan, Amma, and the little ones.",
+      note: "Deep family roots",
+      dateOrTag: "Ancestral Roots",
+      category: "family",
+      likes: 165
     },
     {
-        "id": 8,
-        "image": "./images/photo_14.jpg",
-        "caption": "Gathered at our ancestral home — generations of blessings with Muthassi, Muthachan, Amma, and the little ones.",
-        "note": "Deep family roots",
-        "dateOrTag": "Ancestral Roots",
-        "category": "family",
-        "likes": 165
+      id: 8,
+      image: "./images/photo_15.jpg",
+      caption: "Temple festival stalls and toy shopping \u2014 Amma treating young Kuttan to special festival treats.",
+      note: "Temple festival shopping",
+      dateOrTag: "Festival Treats",
+      category: "kuttan",
+      likes: 155
     },
     {
-        "id": 9,
-        "image": "./images/photo_15.jpg",
-        "caption": "Temple festival stalls and toy shopping — Amma treating young Kuttan to special festival treats.",
-        "note": "Temple festival shopping",
-        "dateOrTag": "Festival Treats",
-        "category": "kuttan",
-        "likes": 155
+      id: 9,
+      image: "./images/photo_17.jpg",
+      caption: "A moment of pure joy \u2014 Amma dancing in the green monsoon woods with a smile brighter than the rain.",
+      note: "Dancing in the woods",
+      dateOrTag: "Monsoon Joy",
+      category: "solo_vintage",
+      likes: 192
     },
     {
-        "id": 10,
-        "image": "./images/photo_16.jpg",
-        "caption": "Sharing a single umbrella through the monsoon downpour — Amma's constant protection.",
-        "note": "Monsoon rain shelter",
-        "dateOrTag": "Shelter in Rain",
-        "category": "family",
-        "likes": 185
+      id: 10,
+      image: "./images/photo_18.jpg",
+      caption: "Monsoon stream exploration \u2014 splashing through forest rocks with pink umbrellas and muddy shoes.",
+      note: "Rainy stream adventure",
+      dateOrTag: "Stream Adventure",
+      category: "family",
+      likes: 174
     },
     {
-        "id": 11,
-        "image": "./images/photo_20.jpg",
-        "caption": "Nighttime strolls and sweet hugs — Ammini and Amma sharing laughter under city lights.",
-        "note": "Nighttime cuddles",
-        "dateOrTag": "Mother & Daughter Hugs",
-        "category": "ammini",
-        "likes": 186
+      id: 11,
+      image: "./images/photo_20.jpg",
+      caption: "Nighttime strolls and sweet hugs \u2014 Ammini and Amma sharing laughter under city lights.",
+      note: "Nighttime cuddles",
+      dateOrTag: "Mother & Daughter Hugs",
+      category: "ammini",
+      likes: 186
     },
     {
-        "id": 12,
-        "image": "./images/photo_18.jpg",
-        "caption": "Monsoon stream exploration — splashing through forest rocks with pink umbrellas and muddy shoes.",
-        "note": "Rainy stream adventure",
-        "dateOrTag": "Stream Adventure",
-        "category": "family",
-        "likes": 174
+      id: 12,
+      image: "./images/photo_21.jpg",
+      caption: "Above the mist and clouds \u2014 a chilly hill station getaway with our favorite four.",
+      note: "Misty mountain trip",
+      dateOrTag: "Misty Heights",
+      category: "family",
+      likes: 170
     },
     {
-        "id": 13,
-        "image": "./images/photo_23.jpg",
-        "caption": "Sisterly bond by the water — Amma and Mami twinning gracefully in matching Kerala Set Sarees.",
-        "note": "Kasavu twinning by the lake",
-        "dateOrTag": "Sisterly Twinning",
-        "category": "family",
-        "likes": 182
+      id: 13,
+      image: "./images/photo_22.jpg",
+      caption: "Winding through lush green mountain slopes on the heritage blue toy train with wind in her hair.",
+      note: "Nilgiri toy train ride",
+      dateOrTag: "Mountain Toy Train",
+      category: "solo_vintage",
+      likes: 196
     },
     {
-        "id": 14,
-        "image": "./images/photo_21.jpg",
-        "caption": "Above the mist and clouds — a chilly hill station getaway with our favorite four.",
-        "note": "Misty mountain trip",
-        "dateOrTag": "Misty Heights",
-        "category": "family",
-        "likes": 170
+      id: 14,
+      image: "./images/photo_23.jpg",
+      caption: "Sisterly bond by the water \u2014 Amma and Mami twinning gracefully in matching Kerala Set Sarees.",
+      note: "Kasavu twinning by the lake",
+      dateOrTag: "Sisterly Twinning",
+      category: "family",
+      likes: 182
     },
     {
-        "id": 15,
-        "image": "./images/photo_28.jpg",
-        "caption": "Temple festival morning — Amma in Kasavu warmly embracing her two sweet nieces in matching green frocks.",
-        "note": "Temple blessings with nieces",
-        "dateOrTag": "Temple Nieces",
-        "category": "family",
-        "likes": 190
+      id: 15,
+      image: "./images/photo_24.jpg",
+      caption: "Cozy winter mornings \u2014 Amma wrapped in a floral shawl with her trademark warm smile.",
+      note: "Winter morning glow",
+      dateOrTag: "Winter Warmth",
+      category: "solo_vintage",
+      likes: 184
     },
     {
-        "id": 16,
-        "image": "./images/photo_26.jpg",
-        "caption": "A joyful family dinner — Kuttan taking the wide selfie with Amma, Achan, Ammini, Mama, Mami, and the little cousins.",
-        "note": "Family dinner feast",
-        "dateOrTag": "Full Family Gathering",
-        "category": "family",
-        "likes": 218
+      id: 16,
+      image: "./images/photo_26.jpg",
+      caption: "A joyful family dinner \u2014 Kuttan taking the wide selfie with Amma, Achan, Ammini, Mama, Mami, and the little cousins.",
+      note: "Family dinner feast",
+      dateOrTag: "Full Family Gathering",
+      category: "family",
+      likes: 218
     },
     {
-        "id": 17,
-        "image": "./images/photo_33.jpg",
-        "caption": "Walking along scenic green trails — Amma and Ammini sharing quiet conversations and smiles.",
-        "note": "Quiet mother-daughter moments",
-        "dateOrTag": "Mother & Daughter Trail",
-        "category": "ammini",
-        "likes": 189
+      id: 17,
+      image: "./images/photo_28.jpg",
+      caption: "Temple festival morning \u2014 Amma in Kasavu warmly embracing her two sweet nieces in matching green frocks.",
+      note: "Temple blessings with nieces",
+      dateOrTag: "Temple Nieces",
+      category: "family",
+      likes: 190
     },
     {
-        "id": 18,
-        "image": "./images/photo_31.jpg",
-        "caption": "Celebrating Kuttan's graduation and Ammini's dance achievements — Amma's proudest moments as a mother.",
-        "note": "Milestone achievements",
-        "dateOrTag": "Children's Achievements",
-        "category": "family",
-        "likes": 215
+      id: 18,
+      image: "./images/photo_32.jpg",
+      caption: "Standing before the roaring forest waterfall \u2014 scenic family hiking trails and unforgettable laughter.",
+      note: "Lush waterfall trail",
+      dateOrTag: "Waterfall Expedition",
+      category: "family",
+      likes: 194
     },
     {
-        "id": 19,
-        "image": "./images/photo_36.jpg",
-        "caption": "Traditional temple blessings — a quiet, sacred day of gratitude and togetherness with Amma.",
-        "note": "Temple blessings and peace",
-        "dateOrTag": "Temple Darshan",
-        "category": "family",
-        "likes": 186
+      id: 19,
+      image: "./images/photo_33.jpg",
+      caption: "Walking along scenic green trails \u2014 Amma and Ammini sharing quiet conversations and smiles.",
+      note: "Quiet mother-daughter moments",
+      dateOrTag: "Mother & Daughter Trail",
+      category: "ammini",
+      likes: 189
     },
     {
-        "id": 20,
-        "image": "./images/photo_32.jpg",
-        "caption": "Standing before the roaring forest waterfall — scenic family hiking trails and unforgettable laughter.",
-        "note": "Lush waterfall trail",
-        "dateOrTag": "Waterfall Expedition",
-        "category": "family",
-        "likes": 194
+      id: 20,
+      image: "./images/photo_36.jpg",
+      caption: "Traditional temple blessings \u2014 a quiet, sacred day of gratitude and togetherness with Amma.",
+      note: "Temple blessings and peace",
+      dateOrTag: "Temple Darshan",
+      category: "family",
+      likes: 186
     }
-],
+  ],
 
   // 4. Interactive Birthday Cake Section (Page 3)
   cake: {
@@ -353,105 +353,105 @@ export const MOM_DATA = {
     hugToast: "Big warm hug sent straight to Amma's heart from Kuttan & Ammini! 🤗❤️"
   },
 
-  // 5. Section 2: Love (12 Photos - Chronological 4-Cycle Rhythm: Solo -> Duo/Trio -> Group)
+  // 5. Section 2: Love (12 Photos - Chronological Timeline)
   reasons: [
     {
-        "id": 1,
-        "title": "Timeless Grace & Radiant Presence",
-        "description": "Framed in grace and warm radiance — Amma's natural elegance, heartfelt smile, and gentle soul have been the guiding light of our lives.",
-        "tag": "Radiant Frame",
-        "image": "./images/photo_35.jpg",
-        "caption": "Framed in grace and radiance — our dearest Amma brightening every single room she enters."
+      id: 1,
+      title: "Timeless Grace & Gentle Spirit",
+      description: "Dressed in traditional Kasavu with fresh jasmine in her hair \u2014 Amma's natural elegance, warm smile, and gentle soul have been the guiding light of our lives.",
+      tag: "Timeless Grace",
+      image: "./images/photo_02.jpg",
+      caption: "Youthful elegance and jasmine in her hair \u2014 our beautiful Amma's timeless grace."
     },
     {
-        "id": 2,
-        "title": "The Sacred Foundation of Our Home",
-        "description": "With blessings from elders and sacred vows on the wedding stage, Amma and Achan built a foundation of trust, laughter, and devotion that surrounds our family every day.",
-        "tag": "Sacred Beginnings",
-        "image": "./images/photo_04.jpg",
-        "caption": "Stepping into a lifetime of togetherness surrounded by sacred prayers and blessings."
+      id: 2,
+      title: "The Sacred Foundation of Our Home",
+      description: "With blessings from elders and sacred vows on the wedding stage, Amma and Achan built a foundation of trust, laughter, and devotion that surrounds our family every day.",
+      tag: "Sacred Beginnings",
+      image: "./images/photo_04.jpg",
+      caption: "Stepping into a lifetime of togetherness surrounded by sacred prayers and blessings."
     },
     {
-        "id": 3,
-        "title": "Carrying Our Entire World",
-        "description": "Riding high on Achan's shoulders and resting securely in Amma's warm embrace — she gave us endless patience, cozy comfort, and a childhood filled with wonder.",
-        "tag": "Childhood Warmth",
-        "image": "./images/photo_08.jpg",
-        "caption": "Shoulder rides and cozy hugs — early childhood memories in the comfort of Amma's care."
+      id: 3,
+      title: "Partners in Adventure & Laughter",
+      description: "Donning vibrant Rajasthani turbans and royal attire during their travels \u2014 Amma and Achan's joyful companionship and shared laughter make them the warmest pair.",
+      tag: "Royal Companions",
+      image: "./images/photo_06.jpg",
+      caption: "Amma and Achan embracing royal Rajasthani traditions with cheerful smiles."
     },
     {
-        "id": 4,
-        "title": "Teacher, Orator & Guiding Star",
-        "description": "Beyond raising a family, Amma dedicated herself to teaching children, choreographing traditional dance, and speaking on stage with remarkable poise and confidence.",
-        "tag": "Inspiring Poise",
-        "image": "./images/photo_19.jpg",
-        "caption": "Commanding the stage with poise and grace — our multifaceted Amma inspiring everyone around her."
+      id: 4,
+      title: "Carrying Our Entire World",
+      description: "Riding high on Achan's shoulders and resting securely in Amma's warm embrace \u2014 she gave us endless patience, cozy comfort, and a childhood filled with wonder.",
+      tag: "Childhood Warmth",
+      image: "./images/photo_08.jpg",
+      caption: "Shoulder rides and cozy hugs \u2014 early childhood memories in the comfort of Amma's care."
     },
     {
-        "id": 5,
-        "title": "Partners in Adventure & Laughter",
-        "description": "Donning vibrant Rajasthani turbans and royal attire during their travels — Amma and Achan's joyful companionship and shared laughter make them the warmest pair.",
-        "tag": "Royal Companions",
-        "image": "./images/photo_06.jpg",
-        "caption": "Amma and Achan embracing royal Rajasthani traditions with cheerful smiles."
+      id: 5,
+      title: "The Shelter of Home",
+      description: "No matter where life moved our family, Amma always established a haven of security and warmth where Kuttan and Ammini could grow, laugh, and thrive.",
+      tag: "Family Foundation",
+      image: "./images/photo_12.jpg",
+      caption: "Dressed in bright festive wear \u2014 Amma and Achan keeping their little children close and protected."
     },
     {
-        "id": 6,
-        "title": "The Shelter of Home",
-        "description": "No matter where life moved our family, Amma always established a haven of security and warmth where Kuttan and Ammini could grow, laugh, and thrive.",
-        "tag": "Family Foundation",
-        "image": "./images/photo_12.jpg",
-        "caption": "Dressed in bright festive wear — Amma and Achan keeping their little children close and protected."
+      id: 6,
+      title: "Our Constant Shelter in the Rain",
+      description: "Walking through the rain under a single shared umbrella \u2014 through every storm, sickness, and worry, Amma was always the protective shield keeping both of us safe and dry.",
+      tag: "Shelter in Rain",
+      image: "./images/photo_16.jpg",
+      caption: "Sharing a single umbrella through the monsoon downpour \u2014 Amma's constant protection."
     },
     {
-        "id": 7,
-        "title": "Joy in Every Journey",
-        "description": "Winding through lush green mountain slopes on the heritage blue toy train with wind in her hair — Amma's adventurous spirit and vibrant energy inspire us every day.",
-        "tag": "Mountain Toy Train",
-        "image": "./images/photo_22.jpg",
-        "caption": "Winding through lush green mountain slopes on the heritage blue toy train with wind in her hair."
+      id: 7,
+      title: "Teacher, Orator & Guiding Star",
+      description: "Beyond raising a family, Amma dedicated herself to teaching children, choreographing traditional dance, and speaking on stage with remarkable poise and confidence.",
+      tag: "Inspiring Poise",
+      image: "./images/photo_19.jpg",
+      caption: "Commanding the stage with poise and grace \u2014 our multifaceted Amma inspiring everyone around her."
     },
     {
-        "id": 8,
-        "title": "Decades of Devotion & Companionship",
-        "description": "Standing in front of India Gate, exchanging the very same loving, affectionate gaze that began their story decades ago — Amma & Achan's bond only deepens with time.",
-        "tag": "Decades of Love",
-        "image": "./images/photo_25.jpg",
-        "caption": "A tender glance in Delhi — Amma and Achan's companionship growing richer with every passing year."
+      id: 8,
+      title: "Decades of Devotion & Companionship",
+      description: "Standing in front of India Gate, exchanging the very same loving, affectionate gaze that began their story decades ago \u2014 Amma & Achan's bond only deepens with time.",
+      tag: "Decades of Love",
+      image: "./images/photo_25.jpg",
+      caption: "A tender glance in Delhi \u2014 Amma and Achan's companionship growing richer with every passing year."
     },
     {
-        "id": 9,
-        "title": "The Heart of Our Family Tree",
-        "description": "Surrounded by her parents (Muthachan & Muthassi), her brother & sister-in-law, her children, and her nieces — Amma stands at the loving center of our entire extended family.",
-        "tag": "Family Heritage",
-        "image": "./images/photo_27.jpg",
-        "caption": "Three generations united in our ancestral courtyard — rooted in timeless love and cherished heritage."
+      id: 9,
+      title: "The Heart of Our Family Tree",
+      description: "Surrounded by her parents (Muthachan & Muthassi), her brother & sister-in-law, her children, and her nieces \u2014 Amma stands at the loving center of our entire extended family.",
+      tag: "Family Heritage",
+      image: "./images/photo_27.jpg",
+      caption: "Three generations united in our ancestral courtyard \u2014 rooted in timeless love and cherished heritage."
     },
     {
-        "id": 10,
-        "title": "Gentle Soul & Winter Warmth",
-        "description": "Wrapped in a warm floral shawl with her trademark peaceful smile — Amma brings comfort, tranquility, and reassurance wherever she is.",
-        "tag": "Winter Warmth",
-        "image": "./images/photo_24.jpg",
-        "caption": "Cozy winter mornings — Amma wrapped in a floral shawl with her trademark warm smile."
+      id: 10,
+      title: "Our Living Anchor & Pride",
+      description: "Seeing her children grown up into confident young adults, standing proudly beside Achan in traditional Kasavu \u2014 Amma's selfless dedication reflected in every smile.",
+      tag: "Family Pride",
+      image: "./images/photo_29.jpg",
+      caption: "A portrait of family pride \u2014 Amma and Achan with their grown-up Kuttan and Ammini dressed in tradition."
     },
     {
-        "id": 11,
-        "title": "Sweet Memories & Shared Laughter",
-        "description": "Late-evening dessert treats, spontaneous laughs, and ice cream outings — every simple moment spent with Amma becomes an unforgettable memory.",
-        "tag": "Sweet Memories",
-        "image": "./images/photo_34.jpg",
-        "caption": "Late-evening dessert treat — Kuttan and Amma enjoying ice cream and fond memories together."
+      id: 11,
+      title: "Her Greatest Milestones Reflected in Us",
+      description: "From Kuttan earning his degree to Ammini performing her classical dance debut on stage \u2014 every triumph of our youth is a testament to Amma's love and unwavering belief.",
+      tag: "Children's Achievements",
+      image: "./images/photo_31.jpg",
+      caption: "Celebrating Kuttan's graduation and Ammini's dance achievements \u2014 Amma's proudest moments as a mother."
     },
     {
-        "id": 12,
-        "title": "Our Living Anchor & Pride",
-        "description": "Seeing her children grown up into confident young adults, standing proudly beside Achan in traditional Kasavu — Amma's selfless dedication reflected in every smile.",
-        "tag": "Family Pride",
-        "image": "./images/photo_29.jpg",
-        "caption": "A portrait of family pride — Amma and Achan with their grown-up Kuttan and Ammini dressed in tradition."
+      id: 12,
+      title: "Our Living Legacy & Sweet Memories",
+      description: "Sharing laughs, late-night dessert dates, and endless warmth \u2014 wherever life leads us and however far we go, our hearts will always belong to the warm, selfless, extraordinary woman who gave us everything. Happy Birthday, dearest Amma!",
+      tag: "Sweet Memories",
+      image: "./images/photo_34.jpg",
+      caption: "Late-evening dessert treat \u2014 Kuttan and Amma enjoying ice cream and fond memories together."
     }
-],
+  ],
 
   // Amma's Superpower Stats
   superpowers: [
