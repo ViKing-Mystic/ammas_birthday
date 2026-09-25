@@ -267,8 +267,19 @@ export default function LoveCards() {
                     willChange: 'transform, opacity, filter'
                   }}
                 >
-                  {/* Top Bar: Tag Pill + Likes Counter Button */}
-                  <div className="flex items-center justify-between pb-1.5 px-0.5 shrink-0">
+                  {/* Photo Container in Polaroid Frame at Top */}
+                  <div className="polaroid-frame p-2 sm:p-2.5 border border-rosegold-200 shrink-0">
+                    <EnlargeableImage
+                      src={reason.image}
+                      alt={reason.caption || reason.tag}
+                      caption={reason.caption}
+                      tag={reason.tag}
+                      className="rounded-xl shadow-inner border border-rosegold-100 w-full aspect-square object-cover"
+                    />
+                  </div>
+
+                  {/* Middle Bar: Tag Pill + Likes Counter Button (Below Image, Above Caption) */}
+                  <div className="flex items-center justify-between pt-2.5 pb-1 px-1 shrink-0">
                     <span className="text-[10px] sm:text-[11px] font-bold text-rosegold-700 bg-rosegold-50 px-2.5 py-0.5 rounded-full border border-rosegold-200 shadow-2xs">
                       {reason.tag}
                     </span>
@@ -285,19 +296,8 @@ export default function LoveCards() {
                     </button>
                   </div>
 
-                  {/* Photo Container in Polaroid Frame */}
-                  <div className="polaroid-frame p-2 sm:p-2.5 border border-rosegold-200 shrink-0">
-                    <EnlargeableImage
-                      src={reason.image}
-                      alt={reason.caption || reason.tag}
-                      caption={reason.caption}
-                      tag={reason.tag}
-                      className="rounded-xl shadow-inner border border-rosegold-100 w-full aspect-square object-cover"
-                    />
-                  </div>
-
-                  {/* Full Caption Text - Completely visible without truncation */}
-                  <div className="flex-1 flex items-center justify-center pt-2 pb-1 px-1 text-center">
+                  {/* Full Caption Text - Below Tag & Likes */}
+                  <div className="flex-1 flex items-center justify-center pt-1 pb-1 px-1 text-center">
                     <p className="font-handwriting text-sm sm:text-base md:text-lg text-rosewood-900 leading-snug font-bold break-words">
                       "{reason.caption}"
                     </p>
