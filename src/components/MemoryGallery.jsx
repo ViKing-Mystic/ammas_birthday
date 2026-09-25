@@ -58,7 +58,7 @@ export default function MemoryGallery() {
       <div className="text-center space-y-1.5 sm:space-y-2">
         <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-rosegold-100 border border-rosegold-300 text-rosewood-900 text-[11px] sm:text-xs font-bold uppercase tracking-wider shadow-xs">
           <Camera className="w-3.5 h-3.5 text-rosegold-600" />
-          <span>Amma's Memory Vault (31 Cherished Photos)</span>
+          <span>Amma's Memory Vault ({MOM_DATA.memories.length} Cherished Photos)</span>
         </div>
         <h2 className="font-serif text-2xl sm:text-4xl font-bold text-rosewood-950 break-words">
           A Lifetime of Love & Smiles
