@@ -34,6 +34,23 @@ export default function LoveCards() {
   const reasons = MOM_DATA.reasons;
   const totalCards = reasons.length;
 
+  // Interactive Likes state for Love Cards
+  const [likes, setLikes] = useState(() => {
+    const initial = {};
+    MOM_DATA.reasons.forEach((r, idx) => {
+      initial[r.id] = 160 + ((idx * 17) % 75);
+    });
+    return initial;
+  });
+
+  const handleLike = (e, id) => {
+    e.stopPropagation();
+    setLikes((prev) => ({
+      ...prev,
+      [id]: (prev[id] || 160) + 1
+    }));
+  };
+
   // Touch handling for mobile swipe
   const touchStartX = useRef(null);
   const touchEndX = useRef(null);
@@ -157,14 +174,11 @@ export default function LoveCards() {
       {/* 3D INFINITE COVERFLOW CAROUSEL SECTION */}
       <div className="space-y-3 sm:space-y-4 pt-2">
         
-        {/* Section Heading & Interactive Tip */}
+        {/* Section Heading */}
         <div className="text-center space-y-1">
           <h3 className="font-serif text-xl sm:text-3xl font-bold text-rosewood-950 break-words">
             Treasured Reasons We Love You, Amma
           </h3>
-          <p className="text-[11px] sm:text-xs text-rosewood-700 font-medium">
-            Swipe or use the arrows to glide through all {totalCards} memories ✨
-          </p>
         </div>
 
         {/* Coverflow 3D Stage Container */}
@@ -175,14 +189,14 @@ export default function LoveCards() {
           onTouchEnd={handleTouchEnd}
           style={{
             perspective: '1200px',
-            minHeight: isPhoneMode ? '490px' : '530px'
+            minHeight: isPhoneMode ? '460px' : '500px'
           }}
         >
           {/* Ambient Glow behind center */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-gradient-to-tr from-rosegold-200/50 via-blush-200/40 to-champagne-200/30 blur-3xl pointer-events-none -z-10" />
 
           {/* Cards Stage */}
-          <div className="relative w-full h-[470px] sm:h-[510px] flex items-center justify-center">
+          <div className="relative w-full h-[440px] sm:h-[480px] flex items-center justify-center">
             {reasons.map((reason, idx) => {
               // Calculate circular offset relative to activeIndex in range [-totalCards/2, totalCards/2]
               let offset = (idx - activeIndex) % totalCards;
@@ -237,12 +251,12 @@ export default function LoveCards() {
                 <div
                   key={reason.id}
                   onClick={() => !isCenter && goToIndex(idx)}
-                  className={`absolute top-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] flex flex-col justify-between p-3.5 sm:p-4.5 rounded-3xl bg-white border-2 border-rosegold-200/90 shadow-md ${
+                  className={`absolute top-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] flex flex-col justify-between p-3 sm:p-4 rounded-3xl bg-white border-2 border-rosegold-200/90 shadow-md ${
                     isCenter ? 'cursor-default ring-2 ring-rosegold-400/40' : 'cursor-pointer hover:border-rosegold-400'
                   }`}
                   style={{
                     width: isPhoneMode ? '275px' : '330px',
-                    height: isPhoneMode ? '450px' : '490px',
+                    height: isPhoneMode ? '425px' : '465px',
                     transform: `translateX(${translateX}px) scale(${scale}) rotateY(${rotateY}deg)`,
                     opacity: opacity,
                     zIndex: zIndex,
@@ -253,42 +267,39 @@ export default function LoveCards() {
                     willChange: 'transform, opacity, filter'
                   }}
                 >
+                  {/* Top Bar: Tag Pill + Likes Counter Button */}
+                  <div className="flex items-center justify-between pb-1.5 px-0.5 shrink-0">
+                    <span className="text-[10px] sm:text-[11px] font-bold text-rosegold-700 bg-rosegold-50 px-2.5 py-0.5 rounded-full border border-rosegold-200 shadow-2xs">
+                      {reason.tag}
+                    </span>
+
+                    <button
+                      onClick={(e) => handleLike(e, reason.id)}
+                      className="group inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-rose-50 hover:bg-rose-100 border border-rosegold-200 active:scale-95 transition-all cursor-pointer"
+                      title="Send love to this photo"
+                    >
+                      <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 group-hover:scale-110 transition-transform" />
+                      <span className="text-[11px] font-mono font-bold text-rosewood-900">
+                        {likes[reason.id] || 160}
+                      </span>
+                    </button>
+                  </div>
+
                   {/* Photo Container in Polaroid Frame */}
                   <div className="polaroid-frame p-2 sm:p-2.5 border border-rosegold-200 shrink-0">
                     <EnlargeableImage
                       src={reason.image}
-                      alt={reason.title}
-                      caption={reason.caption || reason.title}
+                      alt={reason.caption || reason.tag}
+                      caption={reason.caption}
                       tag={reason.tag}
                       className="rounded-xl shadow-inner border border-rosegold-100 w-full aspect-square object-cover"
                     />
-                    {reason.caption && (
-                      <p className="font-handwriting text-xs sm:text-sm text-rosewood-900 text-center pt-1.5 font-bold leading-tight line-clamp-2 break-words">
-                        "{reason.caption}"
-                      </p>
-                    )}
                   </div>
 
-                  {/* Text Content */}
-                  <div className="space-y-1 sm:space-y-1.5 pt-1.5 flex-1 flex flex-col justify-between">
-                    <div>
-                      <div className="flex items-center justify-between pb-1">
-                        <span className="text-[10px] font-bold text-rosegold-700 bg-rosegold-50 px-2.5 py-0.5 rounded-full border border-rosegold-200 shadow-2xs">
-                          {reason.tag}
-                        </span>
-                        <div className="flex items-center gap-1 text-[10px] font-mono font-bold text-rosegold-500">
-                          <span>#{idx + 1}</span>
-                          <Heart className="w-3 h-3 text-rosegold-500 fill-rosegold-400" />
-                        </div>
-                      </div>
-
-                      <h4 className="font-serif text-sm sm:text-base font-bold text-rosewood-950 leading-snug line-clamp-1 break-words">
-                        {reason.title}
-                      </h4>
-                    </div>
-
-                    <p className="text-[11px] sm:text-xs text-rosewood-800 leading-relaxed font-medium line-clamp-3 break-words">
-                      {reason.description}
+                  {/* Full Caption Text - Completely visible without truncation */}
+                  <div className="flex-1 flex items-center justify-center pt-2 pb-1 px-1 text-center">
+                    <p className="font-handwriting text-sm sm:text-base md:text-lg text-rosewood-900 leading-snug font-bold break-words">
+                      "{reason.caption}"
                     </p>
                   </div>
                 </div>
