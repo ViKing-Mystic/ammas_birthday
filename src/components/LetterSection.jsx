@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Heart, Sparkles, RotateCcw } from 'lucide-react';
+import { Mail, Heart, Sparkles, RotateCcw, Quote } from 'lucide-react';
 import { MOM_DATA } from '../config/momData';
 import { EnlargeableImage } from './PhotoLightboxModal';
 
@@ -67,7 +67,7 @@ export default function LetterSection() {
             </div>
           </div>
         ) : (
-          /* Unfolded Royal Parchment Letter with 1:1 Photo Holders */
+          /* Unfolded Royal Parchment Letter with Narrative Sections */
           <div className="w-full space-y-4 sm:space-y-5 animate-in zoom-in-95 duration-400">
             <div className="bg-[#FFFDFB] p-5 sm:p-8 md:p-10 rounded-3xl shadow-xl border-2 border-rosegold-200/90 relative overflow-hidden">
               
@@ -77,67 +77,171 @@ export default function LetterSection() {
                 <Sparkles className="w-10 h-10 text-rosegold-600" />
               </div>
 
-              <div className="relative z-10 space-y-4 sm:space-y-6">
+              <div className="relative z-10 space-y-6 sm:space-y-8">
                 {/* Salutation */}
                 <h3 className="font-serif text-2xl sm:text-3xl font-bold text-rosewood-950 border-b border-rosegold-200 pb-3">
                   {letter.salutation}
                 </h3>
 
-                {/* Paragraph 1 */}
-                <p className="text-sm sm:text-base md:text-lg text-rosewood-900 leading-relaxed font-sans font-medium break-words">
-                  {letter.paragraphs[0]}
-                </p>
+                {/* Section 1: Childhood Memories */}
+                {letter.sections && letter.sections[0] && (
+                  <div className="space-y-4">
+                    <div className="space-y-3 text-sm sm:text-base md:text-lg text-rosewood-900 leading-relaxed font-sans font-medium break-words">
+                      {letter.sections[0].paragraphs.map((p, i) => (
+                        <p key={i}>{p}</p>
+                      ))}
+                    </div>
 
-                {/* 1:1 Memory Photo Holder #1 inside the letter */}
-                {letter.photos && letter.photos[0] && (
-                  <div className="polaroid-frame p-2.5 sm:p-3.5 my-3 sm:my-4 max-w-[220px] sm:max-w-[260px] mx-auto border border-rosegold-200 transform -rotate-1">
-                    <EnlargeableImage 
-                      src={letter.photos[0].image} 
-                      alt={letter.photos[0].caption}
-                      caption={letter.photos[0].caption}
-                      tag={letter.photos[0].tag}
-                      className="rounded-xl shadow-inner border border-rosegold-100"
-                    />
-                    <p className="font-handwriting text-lg sm:text-2xl text-rosewood-900 text-center pt-2 font-bold leading-tight break-words">
-                      "{letter.photos[0].caption}"
-                    </p>
+                    {letter.sections[0].photo && (
+                      <div className="polaroid-frame p-2.5 sm:p-3.5 my-4 sm:my-5 max-w-[220px] sm:max-w-[260px] mx-auto border border-rosegold-200 transform -rotate-1 shadow-md hover:rotate-0 transition-transform duration-300">
+                        <EnlargeableImage 
+                          src={letter.sections[0].photo.image} 
+                          alt={letter.sections[0].photo.caption}
+                          caption={letter.sections[0].photo.caption}
+                          tag={letter.sections[0].photo.tag}
+                          className="rounded-xl shadow-inner border border-rosegold-100"
+                        />
+                        <p className="font-handwriting text-base sm:text-xl text-rosewood-900 text-center pt-2 font-bold leading-tight break-words">
+                          "{letter.sections[0].photo.caption}"
+                        </p>
+                      </div>
+                    )}
                   </div>
                 )}
 
-                {/* Paragraphs 2 and 3 */}
-                <div className="space-y-3 sm:space-y-4 text-sm sm:text-base md:text-lg text-rosewood-900 leading-relaxed font-sans font-medium break-words">
-                  <p>{letter.paragraphs[1]}</p>
-                  <p>{letter.paragraphs[2]}</p>
-                </div>
+                {/* Section 2: Amma's Giving & Accomplishments */}
+                {letter.sections && letter.sections[1] && (
+                  <div className="space-y-4 pt-2 border-t border-rosegold-100/80">
+                    <div className="space-y-3 text-sm sm:text-base md:text-lg text-rosewood-900 leading-relaxed font-sans font-medium break-words">
+                      {letter.sections[1].paragraphs.map((p, i) => (
+                        <p key={i}>{p}</p>
+                      ))}
+                    </div>
 
-                {/* 1:1 Memory Photo Holder #2 */}
-                {letter.photos && letter.photos[1] && (
-                  <div className="polaroid-frame p-2.5 sm:p-3.5 my-3 sm:my-4 max-w-[220px] sm:max-w-[260px] mx-auto border border-rosegold-200 transform rotate-1">
-                    <EnlargeableImage 
-                      src={letter.photos[1].image} 
-                      alt={letter.photos[1].caption}
-                      caption={letter.photos[1].caption}
-                      tag={letter.photos[1].tag}
-                      className="rounded-xl shadow-inner border border-rosegold-100"
-                    />
-                    <p className="font-handwriting text-lg sm:text-2xl text-rosewood-900 text-center pt-2 font-bold leading-tight break-words">
-                      "{letter.photos[1].caption}"
-                    </p>
+                    {letter.sections[1].photo && (
+                      <div className="polaroid-frame p-2.5 sm:p-3.5 my-4 sm:my-5 max-w-[220px] sm:max-w-[260px] mx-auto border border-rosegold-200 transform rotate-1 shadow-md hover:rotate-0 transition-transform duration-300">
+                        <EnlargeableImage 
+                          src={letter.sections[1].photo.image} 
+                          alt={letter.sections[1].photo.caption}
+                          caption={letter.sections[1].photo.caption}
+                          tag={letter.sections[1].photo.tag}
+                          className="rounded-xl shadow-inner border border-rosegold-100"
+                        />
+                        <p className="font-handwriting text-base sm:text-xl text-rosewood-900 text-center pt-2 font-bold leading-tight break-words">
+                          "{letter.sections[1].photo.caption}"
+                        </p>
+                      </div>
+                    )}
                   </div>
                 )}
 
-                {/* Paragraph 4 */}
-                <p className="text-sm sm:text-base md:text-lg text-rosewood-900 leading-relaxed font-sans font-medium break-words">
-                  {letter.paragraphs[3]}
-                </p>
+                {/* Section 3: Growing Up & Stepping Out */}
+                {letter.sections && letter.sections[2] && (
+                  <div className="space-y-4 pt-2 border-t border-rosegold-100/80">
+                    <div className="space-y-3 text-sm sm:text-base md:text-lg text-rosewood-900 leading-relaxed font-sans font-medium break-words">
+                      {letter.sections[2].paragraphs.map((p, i) => (
+                        <p key={i}>{p}</p>
+                      ))}
+                    </div>
+
+                    {/* Malayalam Emotional Callout */}
+                    {letter.sections[2].specialCallout && (
+                      <div className="my-5 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-rosegold-50 via-blush-50 to-rosegold-100/70 border border-rosegold-300 shadow-inner text-center space-y-1.5">
+                        <div className="flex justify-center mb-1">
+                          <Quote className="w-5 h-5 text-rosegold-500 opacity-60" />
+                        </div>
+                        {letter.sections[2].specialCallout.malayalam.map((line, idx) => (
+                          <p key={idx} className="font-serif text-lg sm:text-xl font-bold text-rosewood-950">
+                            {line}
+                          </p>
+                        ))}
+                        <p className="font-sans text-sm sm:text-base text-rosegold-800 font-semibold italic pt-1">
+                          "{letter.sections[2].specialCallout.english}"
+                        </p>
+                      </div>
+                    )}
+
+                    {letter.sections[2].afterCallout && (
+                      <div className="space-y-3 text-sm sm:text-base md:text-lg text-rosewood-900 leading-relaxed font-sans font-medium break-words">
+                        {letter.sections[2].afterCallout.map((p, i) => (
+                          <p key={i}>{p}</p>
+                        ))}
+                      </div>
+                    )}
+
+                    {letter.sections[2].photo && (
+                      <div className="polaroid-frame p-2.5 sm:p-3.5 my-4 sm:my-5 max-w-[220px] sm:max-w-[260px] mx-auto border border-rosegold-200 transform -rotate-1 shadow-md hover:rotate-0 transition-transform duration-300">
+                        <EnlargeableImage 
+                          src={letter.sections[2].photo.image} 
+                          alt={letter.sections[2].photo.caption}
+                          caption={letter.sections[2].photo.caption}
+                          tag={letter.sections[2].photo.tag}
+                          className="rounded-xl shadow-inner border border-rosegold-100"
+                        />
+                        <p className="font-handwriting text-base sm:text-xl text-rosewood-900 text-center pt-2 font-bold leading-tight break-words">
+                          "{letter.sections[2].photo.caption}"
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* Section 4: Safe Harbor & Unchanging Love */}
+                {letter.sections && letter.sections[3] && (
+                  <div className="space-y-4 pt-2 border-t border-rosegold-100/80">
+                    <div className="space-y-3 text-sm sm:text-base md:text-lg text-rosewood-900 leading-relaxed font-sans font-medium break-words">
+                      {letter.sections[3].paragraphs.map((p, i) => (
+                        <p key={i}>{p}</p>
+                      ))}
+                    </div>
+
+                    {/* Virtues List */}
+                    {letter.sections[3].virtues && (
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 py-2 text-center">
+                        {letter.sections[3].virtues.map((v, i) => (
+                          <div key={i} className="p-2.5 rounded-xl bg-rosegold-50 border border-rosegold-200 shadow-2xs">
+                            <span className="font-serif text-sm sm:text-base font-bold text-rosewood-950">
+                              {v}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {letter.sections[3].finalParagraphs && (
+                      <div className="space-y-3 text-sm sm:text-base md:text-lg text-rosewood-900 leading-relaxed font-sans font-medium break-words">
+                        {letter.sections[3].finalParagraphs.map((p, i) => (
+                          <p key={i} className={i >= letter.sections[3].finalParagraphs.length - 2 ? "font-bold text-rosewood-950" : ""}>
+                            {p}
+                          </p>
+                        ))}
+                      </div>
+                    )}
+
+                    {letter.sections[3].photo && (
+                      <div className="polaroid-frame p-2.5 sm:p-3.5 my-4 sm:my-5 max-w-[220px] sm:max-w-[260px] mx-auto border border-rosegold-200 transform rotate-1 shadow-md hover:rotate-0 transition-transform duration-300">
+                        <EnlargeableImage 
+                          src={letter.sections[3].photo.image} 
+                          alt={letter.sections[3].photo.caption}
+                          caption={letter.sections[3].photo.caption}
+                          tag={letter.sections[3].photo.tag}
+                          className="rounded-xl shadow-inner border border-rosegold-100"
+                        />
+                        <p className="font-handwriting text-base sm:text-xl text-rosewood-900 text-center pt-2 font-bold leading-tight break-words">
+                          "{letter.sections[3].photo.caption}"
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                )}
 
                 {/* Closing & Signature */}
-                <div className="pt-4 sm:pt-6 border-t border-rosegold-200 space-y-1.5 text-right">
-                  <p className="text-xs sm:text-sm font-serif italic text-rosewood-700">
-                    {letter.closing}
+                <div className="pt-6 sm:pt-8 border-t-2 border-rosegold-200 space-y-2 text-right">
+                  <p className="font-script text-2xl sm:text-3xl text-rosegold-600 font-bold">
+                    {letter.closingQuote}
                   </p>
-                  <p className="font-script text-3xl sm:text-4xl text-rosegold-600 font-bold">
-                    {letter.signature}
+                  <p className="font-serif text-base sm:text-lg font-bold text-rosewood-900">
+                    — Your {letter.signature}
                   </p>
                 </div>
               </div>
@@ -161,3 +265,4 @@ export default function LetterSection() {
     </section>
   );
 }
+
