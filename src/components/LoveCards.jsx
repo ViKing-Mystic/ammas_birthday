@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { 
   Heart, 
   Sparkles, 
@@ -7,7 +7,9 @@ import {
   Eye, 
   Search, 
   Coffee, 
-  Crown
+  Crown,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 import { MOM_DATA } from '../config/momData';
 import { EnlargeableImage } from './PhotoLightboxModal';
@@ -26,6 +28,17 @@ const iconMap = {
 export default function LoveCards() {
   const { deviceMode } = useDeviceMode();
   const isPhoneMode = deviceMode === 'phone';
+  
+  // Virtual / Circular Index for Coverflow
+  const [activeIndex, setActiveIndex] = useState(0);
+  const reasons = MOM_DATA.reasons;
+  const totalCards = reasons.length;
+
+  // Touch handling for mobile swipe
+  const touchStartX = useRef(null);
+  const touchEndX = useRef(null);
+
+  // Love Jar state
   const [activeJarNote, setActiveJarNote] = useState(null);
   const [jarIndex, setJarIndex] = useState(0);
 
@@ -35,12 +48,59 @@ export default function LoveCards() {
     setActiveJarNote(MOM_DATA.loveJarQuotes[nextIndex]);
   };
 
+  // Next and Previous navigation handlers
+  const handleNext = useCallback(() => {
+    setActiveIndex((prev) => (prev + 1) % totalCards);
+  }, [totalCards]);
+
+  const handlePrev = useCallback(() => {
+    setActiveIndex((prev) => (prev - 1 + totalCards) % totalCards);
+  }, [totalCards]);
+
+  const goToIndex = (index) => {
+    setActiveIndex(index);
+  };
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowLeft') handlePrev();
+      if (e.key === 'ArrowRight') handleNext();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [handleNext, handlePrev]);
+
+  // Touch swipe handlers
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current === null || touchEndX.current === null) return;
+    const diff = touchStartX.current - touchEndX.current;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) {
+        handleNext();
+      } else {
+        handlePrev();
+      }
+    }
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
   return (
-    <section className="py-4 sm:py-6 px-3 sm:px-6 space-y-5 sm:space-y-6 animate-in fade-in duration-400 w-full max-w-4xl mx-auto">
+    <section className="py-4 sm:py-6 px-2 sm:px-6 space-y-6 sm:space-y-8 animate-in fade-in duration-400 w-full max-w-4xl mx-auto overflow-hidden">
       
       {/* Header */}
-      <div className="text-center space-y-1.5 sm:space-y-2">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rosegold-100 border border-rosegold-300 text-rosewood-900 text-[11px] sm:text-xs font-bold uppercase tracking-wider shadow-xs">
+      <div className="text-center space-y-1.5 sm:space-y-2 px-2">
+        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-rosegold-100 border border-rosegold-300 text-rosewood-900 text-[11px] sm:text-xs font-bold uppercase tracking-wider shadow-xs">
           <Heart className="w-3.5 h-3.5 fill-rosegold-500 text-rosegold-500" />
           <span>Gratitude & Superpowers</span>
         </div>
@@ -53,7 +113,7 @@ export default function LoveCards() {
       </div>
 
       {/* Amma's Superpower Stats Card */}
-      <div className="p-4 sm:p-6 rounded-3xl bg-white border-2 border-rosegold-200 shadow-md space-y-3.5">
+      <div className="p-4 sm:p-6 rounded-3xl bg-white border-2 border-rosegold-200 shadow-md space-y-3.5 mx-2">
         <div className="flex items-center gap-2 border-b border-rosegold-100 pb-2">
           <Sparkles className="w-4 h-4 text-rosegold-500" />
           <h3 className="font-serif text-base sm:text-xl font-bold text-rosewood-950">
@@ -94,53 +154,198 @@ export default function LoveCards() {
         </div>
       </div>
 
-      {/* 1:1 Photo Reason Cards */}
+      {/* 3D INFINITE COVERFLOW CAROUSEL SECTION */}
       <div className="space-y-3 sm:space-y-4 pt-2">
-        <h3 className="font-serif text-xl sm:text-2xl font-bold text-rosewood-950 text-center break-words">
-          Treasured Reasons We Love You, Amma
-        </h3>
-
-        {/* 1:1 Photo Reason Cards - mx1 for phone, 2-col matrix for tablet/desktop */}
-        <div className={isPhoneMode ? "grid grid-cols-1 gap-4" : "grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5"}>
-          {MOM_DATA.reasons.map((reason) => (
-            <div
-              key={reason.id}
-              className="p-3.5 sm:p-4 rounded-3xl bg-white border border-rosegold-200 shadow-sm hover:shadow-md transition-all space-y-3 flex flex-col justify-between"
-            >
-              {/* 1:1 Photo Frame for Reason */}
-              <div className="polaroid-frame p-2 sm:p-2.5 border border-rosegold-200">
-                <EnlargeableImage
-                  src={reason.image}
-                  alt={reason.title}
-                  caption={reason.caption || reason.title}
-                  tag={reason.tag}
-                  className="rounded-xl shadow-inner border border-rosegold-100"
-                />
-                {reason.caption && (
-                  <p className="font-handwriting text-base sm:text-xl text-rosewood-900 text-center pt-2 font-bold leading-tight break-words">
-                    {reason.caption}
-                  </p>
-                )}
-              </div>
-
-              {/* Text Description */}
-              <div className="space-y-1.5 pt-1">
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-bold text-rosegold-700 bg-rosegold-50 px-2.5 py-0.5 rounded-full border border-rosegold-200">
-                    {reason.tag}
-                  </span>
-                  <Heart className="w-3.5 h-3.5 text-rosegold-500 fill-rosegold-400" />
-                </div>
-                <h4 className="font-serif text-base sm:text-lg font-bold text-rosewood-950 break-words">
-                  {reason.title}
-                </h4>
-                <p className="text-xs sm:text-sm text-rosewood-800 leading-relaxed font-medium break-words">
-                  {reason.description}
-                </p>
-              </div>
-            </div>
-          ))}
+        
+        {/* Section Heading & Interactive Tip */}
+        <div className="text-center space-y-1">
+          <h3 className="font-serif text-xl sm:text-3xl font-bold text-rosewood-950 break-words">
+            Treasured Reasons We Love You, Amma
+          </h3>
+          <p className="text-[11px] sm:text-xs text-rosewood-700 font-medium">
+            Swipe or use the arrows to glide through all {totalCards} memories ✨
+          </p>
         </div>
+
+        {/* Coverflow 3D Stage Container */}
+        <div 
+          className="relative w-full overflow-hidden py-4 select-none"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          style={{
+            perspective: '1200px',
+            minHeight: isPhoneMode ? '490px' : '530px'
+          }}
+        >
+          {/* Ambient Glow behind center */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-gradient-to-tr from-rosegold-200/50 via-blush-200/40 to-champagne-200/30 blur-3xl pointer-events-none -z-10" />
+
+          {/* Cards Stage */}
+          <div className="relative w-full h-[470px] sm:h-[510px] flex items-center justify-center">
+            {reasons.map((reason, idx) => {
+              // Calculate circular offset relative to activeIndex in range [-totalCards/2, totalCards/2]
+              let offset = (idx - activeIndex) % totalCards;
+              if (offset > totalCards / 2) offset -= totalCards;
+              if (offset < -totalCards / 2) offset += totalCards;
+
+              const isCenter = offset === 0;
+              const isImmediate = Math.abs(offset) === 1;
+              const isVisible = Math.abs(offset) <= 2;
+
+              // Compute 3D Coverflow positioning parameters
+              let translateX = 0;
+              let scale = 1;
+              let rotateY = 0;
+              let opacity = 0;
+              let zIndex = 0;
+              let filter = 'none';
+
+              if (isCenter) {
+                translateX = 0;
+                scale = 1;
+                rotateY = 0;
+                opacity = 1;
+                zIndex = 30;
+                filter = 'drop-shadow(0 15px 25px rgba(183, 110, 121, 0.25))';
+              } else if (isImmediate) {
+                const dir = offset > 0 ? 1 : -1;
+                translateX = isPhoneMode ? dir * 145 : dir * 215;
+                scale = isPhoneMode ? 0.84 : 0.86;
+                rotateY = dir * -22;
+                opacity = isPhoneMode ? 0.65 : 0.75;
+                zIndex = 20;
+                filter = 'brightness(0.92) drop-shadow(0 8px 16px rgba(183, 110, 121, 0.15))';
+              } else if (Math.abs(offset) === 2) {
+                const dir = offset > 0 ? 1 : -1;
+                translateX = isPhoneMode ? dir * 240 : dir * 350;
+                scale = isPhoneMode ? 0.70 : 0.72;
+                rotateY = dir * -35;
+                opacity = isPhoneMode ? 0.2 : 0.35;
+                zIndex = 10;
+                filter = 'brightness(0.85)';
+              } else {
+                const dir = offset > 0 ? 1 : -1;
+                translateX = dir * 450;
+                scale = 0.5;
+                rotateY = dir * -45;
+                opacity = 0;
+                zIndex = 0;
+              }
+
+              return (
+                <div
+                  key={reason.id}
+                  onClick={() => !isCenter && goToIndex(idx)}
+                  className={`absolute top-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] flex flex-col justify-between p-3.5 sm:p-4.5 rounded-3xl bg-white border-2 border-rosegold-200/90 shadow-md ${
+                    isCenter ? 'cursor-default ring-2 ring-rosegold-400/40' : 'cursor-pointer hover:border-rosegold-400'
+                  }`}
+                  style={{
+                    width: isPhoneMode ? '275px' : '330px',
+                    height: isPhoneMode ? '450px' : '490px',
+                    transform: `translateX(${translateX}px) scale(${scale}) rotateY(${rotateY}deg)`,
+                    opacity: opacity,
+                    zIndex: zIndex,
+                    filter: filter,
+                    pointerEvents: isVisible ? 'auto' : 'none',
+                    transformStyle: 'preserve-3d',
+                    backfaceVisibility: 'hidden',
+                    willChange: 'transform, opacity, filter'
+                  }}
+                >
+                  {/* Photo Container in Polaroid Frame */}
+                  <div className="polaroid-frame p-2 sm:p-2.5 border border-rosegold-200 shrink-0">
+                    <EnlargeableImage
+                      src={reason.image}
+                      alt={reason.title}
+                      caption={reason.caption || reason.title}
+                      tag={reason.tag}
+                      className="rounded-xl shadow-inner border border-rosegold-100 w-full aspect-square object-cover"
+                    />
+                    {reason.caption && (
+                      <p className="font-handwriting text-xs sm:text-sm text-rosewood-900 text-center pt-1.5 font-bold leading-tight line-clamp-2 break-words">
+                        "{reason.caption}"
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Text Content */}
+                  <div className="space-y-1 sm:space-y-1.5 pt-1.5 flex-1 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between pb-1">
+                        <span className="text-[10px] font-bold text-rosegold-700 bg-rosegold-50 px-2.5 py-0.5 rounded-full border border-rosegold-200 shadow-2xs">
+                          {reason.tag}
+                        </span>
+                        <div className="flex items-center gap-1 text-[10px] font-mono font-bold text-rosegold-500">
+                          <span>#{idx + 1}</span>
+                          <Heart className="w-3 h-3 text-rosegold-500 fill-rosegold-400" />
+                        </div>
+                      </div>
+
+                      <h4 className="font-serif text-sm sm:text-base font-bold text-rosewood-950 leading-snug line-clamp-1 break-words">
+                        {reason.title}
+                      </h4>
+                    </div>
+
+                    <p className="text-[11px] sm:text-xs text-rosewood-800 leading-relaxed font-medium line-clamp-3 break-words">
+                      {reason.description}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Navigation Controls: Left and Right Arrows */}
+          <div className="absolute inset-y-0 left-1 right-1 flex items-center justify-between pointer-events-none z-40 px-1 sm:px-4">
+            <button
+              onClick={handlePrev}
+              aria-label="Previous photo"
+              className="pointer-events-auto p-2.5 sm:p-3 rounded-full bg-white/90 hover:bg-white text-rosewood-900 border-2 border-rosegold-300 shadow-lg shadow-rosegold-400/30 backdrop-blur-md active:scale-90 transition-all hover:scale-110 hover:border-rosegold-500"
+            >
+              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-rosegold-700" />
+            </button>
+
+            <button
+              onClick={handleNext}
+              aria-label="Next photo"
+              className="pointer-events-auto p-2.5 sm:p-3 rounded-full bg-white/90 hover:bg-white text-rosewood-900 border-2 border-rosegold-300 shadow-lg shadow-rosegold-400/30 backdrop-blur-md active:scale-90 transition-all hover:scale-110 hover:border-rosegold-500"
+            >
+              <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-rosegold-700" />
+            </button>
+          </div>
+
+        </div>
+
+        {/* Carousel Progress Bar & Indicator Badge */}
+        <div className="flex flex-col items-center gap-2 pt-1">
+          <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-white/95 border border-rosegold-300 shadow-xs text-xs font-bold text-rosewood-900">
+            <span className="font-mono text-rosegold-600">{activeIndex + 1}</span>
+            <span className="text-rosegold-300">/</span>
+            <span className="font-mono text-rosewood-700">{totalCards}</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-rosegold-400" />
+            <span className="truncate max-w-[160px] sm:max-w-[240px] text-rosewood-800">
+              {reasons[activeIndex].tag}
+            </span>
+          </div>
+
+          {/* Mini Dot Track for direct jumping */}
+          <div className="flex items-center gap-1 overflow-x-auto max-w-full px-2 py-1 no-scrollbar">
+            {reasons.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goToIndex(i)}
+                aria-label={`Go to slide ${i + 1}`}
+                className={`transition-all duration-300 rounded-full ${
+                  i === activeIndex 
+                    ? 'w-5 h-2 bg-rosegold-500' 
+                    : 'w-2 h-2 bg-rosegold-200 hover:bg-rosegold-300'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
       </div>
 
       {/* Interactive Virtual Love Note Jar */}

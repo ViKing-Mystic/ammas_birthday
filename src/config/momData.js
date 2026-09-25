@@ -283,7 +283,7 @@ export const MOM_DATA = {
 
   // 5. Section 2: Love (Ordered: All Solo -> All Duo -> All Trio -> All Group)
   reasons: [
-    // --- SOLO IMAGES ---
+    // --- SOLO IMAGES (6 Photos) ---
     {
       id: 1,
       title: "Teacher, Orator & Guiding Star",
@@ -308,10 +308,34 @@ export const MOM_DATA = {
       image: "./images/photo_35.jpg",
       caption: "Framed in grace and radiance \u2014 our dearest Amma brightening every single room she enters."
     },
-
-    // --- DUO IMAGES ---
     {
       id: 4,
+      title: "Lighting Up Every Occasion",
+      description: "Standing beside the traditional Nilavilakku adorned with fragrant jasmine \u2014 Amma's serene smile and effortless elegance bring auspicious light and joy to every gathering.",
+      tag: "Traditional Elegance",
+      image: "./images/photo_38.jpg",
+      caption: "Standing with the ceremonial Nilavilakku \u2014 our radiant Amma gracing every gathering with warmth and dignity."
+    },
+    {
+      id: 5,
+      title: "Devotion, Blessings & Pongala Prayers",
+      description: "Kneeling with the sacred earthen pot and fresh blossoms during festival prayers \u2014 Amma's heartfelt devotion and selfless prayers are the divine protection surrounding our family.",
+      tag: "Sacred Devotion",
+      image: "./images/photo_39.jpg",
+      caption: "Preparing the sacred Pongala pot with pure devotion \u2014 Amma's prayers and boundless blessings for our family."
+    },
+    {
+      id: 6,
+      title: "Inspiring Teacher & Loving Mentor",
+      description: "Watching over students with encouragement and gentle guidance \u2014 Amma selflessly pouring her creative talents, passion, and patience into shaping young minds.",
+      tag: "Nurturing Mentor",
+      image: "./images/photo_15.jpg",
+      caption: "Guiding young artists with encouragement and care \u2014 Amma sharing her creative spirit and wisdom."
+    },
+
+    // --- DUO IMAGES (6 Photos) ---
+    {
+      id: 7,
       title: "Sunny Days & Sweet Laughter",
       description: "Young and carefree \u2014 Amma and Achan enjoying sunny outdoor days together, building memories filled with sweet laughter and enduring love.",
       tag: "Early Couple Days",
@@ -319,7 +343,7 @@ export const MOM_DATA = {
       caption: "Young and carefree \u2014 Amma and Achan enjoying sunny outdoor days together."
     },
     {
-      id: 5,
+      id: 8,
       title: "Mother & Daughter Heart-to-Heart",
       description: "Nighttime strolls, sweet hugs, and endless giggles \u2014 Ammini and Amma sharing laughter and a deep, comforting bond under the city lights.",
       tag: "Mother-Daughter Bond",
@@ -327,7 +351,7 @@ export const MOM_DATA = {
       caption: "Nighttime strolls and sweet hugs \u2014 Ammini and Amma sharing laughter under city lights."
     },
     {
-      id: 6,
+      id: 9,
       title: "Sisterhood & Shared Heritage",
       description: "Twinning gracefully in matching traditional Kerala Set Sarees by the water \u2014 celebrating family roots, elegance, and timeless sisterly affection.",
       tag: "Sisterly Twinning",
@@ -335,7 +359,7 @@ export const MOM_DATA = {
       caption: "Sisterly bond by the water \u2014 Amma and Mami twinning gracefully in matching Kerala Set Sarees."
     },
     {
-      id: 7,
+      id: 10,
       title: "Decades of Devotion & Companionship",
       description: "Standing in front of India Gate, exchanging the very same loving gaze that began their story decades ago \u2014 Amma & Achan's companionship growing richer every day.",
       tag: "Decades of Love",
@@ -343,7 +367,7 @@ export const MOM_DATA = {
       caption: "A tender glance in Delhi \u2014 Amma and Achan's companionship growing richer with every passing year."
     },
     {
-      id: 8,
+      id: 11,
       title: "Walking Hand in Hand",
       description: "Walking along scenic green trails \u2014 Amma and Ammini sharing quiet conversations, gentle walks, and sweet smiles together in nature.",
       tag: "Peaceful Trails",
@@ -351,7 +375,7 @@ export const MOM_DATA = {
       caption: "Walking along scenic green trails \u2014 Amma and Ammini sharing quiet conversations and smiles."
     },
     {
-      id: 9,
+      id: 12,
       title: "Sweet Treats & Late-Night Chats",
       description: "Late-evening dessert dates \u2014 sharing laughs, sweet treats, and heart-to-heart conversations with Kuttan, making ordinary evenings feel special.",
       tag: "Sweet Moments",
@@ -359,9 +383,17 @@ export const MOM_DATA = {
       caption: "Late-evening dessert treat \u2014 Kuttan and Amma enjoying ice cream and fond memories together."
     },
 
-    // --- TRIO IMAGES ---
+    // --- TRIO IMAGES (3 Photos) ---
     {
-      id: 10,
+      id: 13,
+      title: "Onam Festivities & Joyous Smiles",
+      description: "Posing with Mahabali at Kerala Samajam Onam celebrations in Mysore \u2014 Amma, Achan, and Ammini celebrating our rich heritage, laughter, and togetherness.",
+      tag: "Onam Celebrations",
+      image: "./images/photo_17.jpg",
+      caption: "Onam celebrations with Achan and Ammini \u2014 sharing Kerala traditions and bright festive smiles together."
+    },
+    {
+      id: 14,
       title: "Endless Warmth for the Little Ones",
       description: "Temple festival morning in Kasavu \u2014 Amma warmly embracing her two sweet nieces in matching green frocks with boundless auntie love.",
       tag: "Temple Nieces",
@@ -369,7 +401,7 @@ export const MOM_DATA = {
       caption: "Temple festival morning \u2014 Amma in Kasavu warmly embracing her two sweet nieces in matching green frocks."
     },
     {
-      id: 11,
+      id: 15,
       title: "Her Greatest Milestones Reflected in Us",
       description: "Celebrating Kuttan's graduation and Ammini's dance achievements \u2014 every triumph of our youth is a testament to Amma's love and unwavering belief.",
       tag: "Children's Achievements",
@@ -377,9 +409,9 @@ export const MOM_DATA = {
       caption: "Celebrating Kuttan's graduation and Ammini's dance achievements \u2014 Amma's proudest moments as a mother."
     },
 
-    // --- GROUP IMAGES ---
+    // --- GROUP IMAGES (7 Photos) ---
     {
-      id: 12,
+      id: 16,
       title: "Generations of Blessings",
       description: "Gathered at our ancestral home \u2014 rooted in the love, warmth, and blessings of Muthassi, Muthachan, Amma, and the little ones.",
       tag: "Ancestral Roots",
@@ -387,7 +419,7 @@ export const MOM_DATA = {
       caption: "Gathered at our ancestral home \u2014 generations of blessings with Muthassi, Muthachan, Amma, and the little ones."
     },
     {
-      id: 13,
+      id: 17,
       title: "Monsoon Stream Adventures",
       description: "Splashing through forest rocks with pink umbrellas and muddy shoes \u2014 adventurous family days spent laughing through the monsoon rain.",
       tag: "Rainy Adventure",
@@ -395,7 +427,7 @@ export const MOM_DATA = {
       caption: "Monsoon stream exploration \u2014 splashing through forest rocks with pink umbrellas and muddy shoes."
     },
     {
-      id: 14,
+      id: 18,
       title: "Above the Clouds Together",
       description: "Above the mist and clouds \u2014 a chilly hill station getaway surrounded by mountain breeze, warmth, and our favorite four.",
       tag: "Misty Heights",
@@ -403,7 +435,7 @@ export const MOM_DATA = {
       caption: "Above the mist and clouds \u2014 a chilly hill station getaway with our favorite four."
     },
     {
-      id: 15,
+      id: 19,
       title: "Laughter Around the Dinner Table",
       description: "A joyful family dinner \u2014 Kuttan taking the wide selfie with Amma, Achan, Ammini, Mama, Mami, and the little cousins surrounded by pure happiness.",
       tag: "Full Family Gathering",
@@ -411,7 +443,7 @@ export const MOM_DATA = {
       caption: "A joyful family dinner \u2014 Kuttan taking the wide selfie with Amma, Achan, Ammini, Mama, Mami, and the little cousins."
     },
     {
-      id: 16,
+      id: 20,
       title: "The Heart of Our Family Tree",
       description: "Three generations united in our ancestral courtyard \u2014 surrounded by parents, brother, sister-in-law, children, and nieces, Amma stands at the loving center.",
       tag: "Family Heritage",
@@ -419,7 +451,7 @@ export const MOM_DATA = {
       caption: "Three generations united in our ancestral courtyard \u2014 rooted in timeless love and cherished heritage."
     },
     {
-      id: 17,
+      id: 21,
       title: "Standing by Roaring Waterfalls",
       description: "Scenic family hiking trails and unforgettable laughter before the roaring forest waterfall \u2014 making memories that will last a lifetime.",
       tag: "Waterfall Expedition",
@@ -427,7 +459,7 @@ export const MOM_DATA = {
       caption: "Standing before the roaring forest waterfall \u2014 scenic family hiking trails and unforgettable laughter."
     },
     {
-      id: 18,
+      id: 22,
       title: "Quiet Gratitude & Sacred Blessings",
       description: "A quiet, sacred day of gratitude, prayers, and togetherness at the temple \u2014 peaceful moments carrying Amma's love and blessings.",
       tag: "Temple Darshan",
