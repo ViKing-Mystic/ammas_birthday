@@ -107,30 +107,30 @@ export default function CatEnvelopeIntro({ onAccept }) {
         </div>
       )}
 
-      {/* STAGE 2: ENVELOPE OPENED -> Letter Revealed + Question */}
-      {step === 'opened' && (
+      {/* STAGE 2: ENVELOPE OPENED -> 1:1 Photo Revealed + Question */}
+      {step === 'opened' && frontPage.envelopePhoto && (
         <div className="w-full space-y-4 sm:space-y-5 animate-in zoom-in-90 fade-in duration-500 px-2">
           
           {/* Top tag */}
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-rosegold-100 border border-rosegold-300 text-rosewood-900 text-xs font-bold shadow-xs">
             <Heart className="w-3.5 h-3.5 fill-rosegold-500 text-rosegold-500 animate-pulse" />
-            <span>Special Invitation</span>
+            <span>{frontPage.envelopePhoto.tag}</span>
           </div>
 
-          {/* Elegant Parchment Letter Card */}
-          <div className="polaroid-frame p-4 sm:p-6 w-full max-w-[320px] sm:max-w-[360px] mx-auto border-2 border-rosegold-200 bg-gradient-to-br from-[#FFF8F7] to-white shadow-md space-y-3 text-center">
-            <div className="w-12 h-12 rounded-full wax-seal flex items-center justify-center mx-auto shadow-md">
-              <Heart className="w-6 h-6 text-rose-100 fill-rose-100/90" />
-            </div>
-            <div className="space-y-1 pt-1">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-rosegold-600 font-sans">
-                A Royal Invitation
-              </span>
-              <h3 className="font-serif text-xl sm:text-2xl font-bold text-rosewood-950">
-                To Dearest Amma 💌
-              </h3>
-              <p className="text-xs sm:text-sm text-rosewood-800 font-medium leading-relaxed pt-1">
-                A lifetime of treasured memories, heartfelt words, and birthday surprises from your Kuttan & Ammini awaits you inside!
+          {/* 1:1 Photo Frame in Rose Gold Polaroid style */}
+          <div className="polaroid-frame p-3 sm:p-4 w-full max-w-[280px] sm:max-w-[320px] mx-auto border-2 border-rosegold-200">
+            <EnlargeableImage 
+              src={frontPage.envelopePhoto.image} 
+              alt={frontPage.envelopePhoto.caption}
+              caption={frontPage.envelopePhoto.caption}
+              tag={frontPage.envelopePhoto.tag}
+              className="rounded-xl shadow-inner border border-rosegold-100"
+            />
+
+            {/* Caption Below Pic */}
+            <div className="pt-2.5 sm:pt-3 pb-1 text-center">
+              <p className="font-handwriting text-lg sm:text-2xl text-rosewood-900 leading-snug font-bold break-words">
+                "{frontPage.envelopePhoto.caption}"
               </p>
             </div>
           </div>
@@ -141,7 +141,7 @@ export default function CatEnvelopeIntro({ onAccept }) {
               {frontPage.question}
             </h2>
 
-            {/* Yes / No Buttons (Responsive wrap on very small screens) */}
+            {/* Yes / No Buttons */}
             <div className="flex flex-col xs:flex-row items-center justify-center gap-3 pt-1 max-w-xs mx-auto w-full">
               <button
                 onClick={handleYesClick}
@@ -162,7 +162,7 @@ export default function CatEnvelopeIntro({ onAccept }) {
         </div>
       )}
 
-      {/* STAGE 3: NO CLICKED ONCE -> Sad Cat */}
+      {/* STAGE 3: NO CLICKED ONCE -> Sad Cat with Photo Beside It */}
       {step === 'sad_cat' && (
         <div className="w-full space-y-4 sm:space-y-5 animate-in zoom-in-95 fade-in duration-400 px-2">
           
@@ -175,9 +175,28 @@ export default function CatEnvelopeIntro({ onAccept }) {
             </p>
           </div>
 
-          {/* Sad Cat Illustration */}
-          <div className="flex items-center justify-center bg-white/80 p-5 sm:p-6 rounded-3xl border border-rosegold-200 shadow-lg max-w-xs mx-auto w-full">
-            <CuteSadCat />
+          {/* Fluid side-by-side or stacked container */}
+          <div className="flex flex-col xs:flex-row items-center justify-center gap-3 sm:gap-4 bg-white/80 p-3 sm:p-4 rounded-3xl border border-rosegold-200 shadow-lg max-w-md mx-auto w-full">
+            {/* Sad Cat */}
+            <div className="flex-1 w-full flex items-center justify-center">
+              <CuteSadCat />
+            </div>
+
+            {/* Photo Beside It */}
+            {sadCatStage.photo && (
+              <div className="flex-1 w-full max-w-[200px] xs:max-w-none polaroid-frame p-2.5 sm:p-3 border border-rosegold-200">
+                <EnlargeableImage 
+                  src={sadCatStage.photo.image} 
+                  alt={sadCatStage.photo.caption}
+                  caption={sadCatStage.photo.caption}
+                  tag={sadCatStage.photo.tag}
+                  className="rounded-xl shadow-inner border border-rosegold-100"
+                />
+                <p className="font-handwriting text-base sm:text-lg text-rosewood-900 text-center pt-2 font-bold leading-tight break-words">
+                  "{sadCatStage.photo.caption}"
+                </p>
+              </div>
+            )}
           </div>
 
           {/* Plea statement */}
@@ -207,7 +226,7 @@ export default function CatEnvelopeIntro({ onAccept }) {
         </div>
       )}
 
-      {/* STAGE 4: NO CLICKED TWICE -> Crying Cat */}
+      {/* STAGE 4: NO CLICKED TWICE -> Crying Cat with Photo Beside It */}
       {step === 'crying_cat' && (
         <div className="w-full space-y-4 sm:space-y-5 animate-in zoom-in-95 fade-in duration-400 px-2">
           
@@ -220,9 +239,28 @@ export default function CatEnvelopeIntro({ onAccept }) {
             </p>
           </div>
 
-          {/* Crying Cat Illustration */}
-          <div className="flex items-center justify-center bg-white/90 p-5 sm:p-6 rounded-3xl border border-rose-300 shadow-xl max-w-xs mx-auto w-full">
-            <CuteCryingCat />
+          {/* Crying Cat + Photo Beside It */}
+          <div className="flex flex-col xs:flex-row items-center justify-center gap-3 sm:gap-4 bg-white/90 p-3 sm:p-4 rounded-3xl border border-rose-300 shadow-xl max-w-md mx-auto w-full">
+            {/* Crying Cat */}
+            <div className="flex-1 w-full flex items-center justify-center">
+              <CuteCryingCat />
+            </div>
+
+            {/* Photo Beside It */}
+            {cryingCatStage.photo && (
+              <div className="flex-1 w-full max-w-[200px] xs:max-w-none polaroid-frame p-2.5 sm:p-3 border border-rosegold-200">
+                <EnlargeableImage 
+                  src={cryingCatStage.photo.image} 
+                  alt={cryingCatStage.photo.caption}
+                  caption={cryingCatStage.photo.caption}
+                  tag={cryingCatStage.photo.tag}
+                  className="rounded-xl shadow-inner border border-rosegold-100"
+                />
+                <p className="font-handwriting text-base sm:text-lg text-rosewood-900 text-center pt-2 font-bold leading-tight break-words">
+                  "{cryingCatStage.photo.caption}"
+                </p>
+              </div>
+            )}
           </div>
 
           {/* Plea statement */}
