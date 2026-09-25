@@ -5,12 +5,12 @@ import { usePhotoLightbox, EnlargeableImage } from './PhotoLightboxModal';
 import { useDeviceMode } from './PhoneContainer';
 
 const CATEGORIES = [
-  { key: 'all', label: 'All Moments', count: 31, icon: Sparkles },
+  { key: 'all', label: 'All Moments', icon: Sparkles },
   { key: 'family', label: 'Whole Family', icon: Users },
   { key: 'kuttan', label: 'With Kuttan 👦', icon: User },
   { key: 'ammini', label: 'With Ammini 👧', icon: Heart },
   { key: 'couple', label: 'Amma & Achan 💑', icon: HeartHandshake },
-  { key: 'solo_vintage', label: 'Solo & Vintage 🌸', icon: Camera }
+  { key: 'solo', label: 'Solo 🌸', icon: Camera }
 ];
 
 export default function MemoryGallery() {
@@ -45,8 +45,8 @@ export default function MemoryGallery() {
     if (activeCategory === 'couple') {
       return item.category === 'couple' || item.caption.toLowerCase().includes('achan');
     }
-    if (activeCategory === 'solo_vintage') {
-      return item.category === 'solo_vintage';
+    if (activeCategory === 'solo') {
+      return item.category === 'solo';
     }
     return true;
   });
@@ -79,7 +79,7 @@ export default function MemoryGallery() {
                 if (cat.key === 'kuttan') return m.category === 'kuttan' || m.caption.toLowerCase().includes('kuttan');
                 if (cat.key === 'ammini') return m.category === 'ammini' || m.caption.toLowerCase().includes('ammini');
                 if (cat.key === 'couple') return m.category === 'couple' || m.caption.toLowerCase().includes('achan');
-                if (cat.key === 'solo_vintage') return m.category === 'solo_vintage';
+                if (cat.key === 'solo') return m.category === 'solo';
                 return true;
               }).length;
 
